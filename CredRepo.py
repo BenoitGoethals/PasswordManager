@@ -5,4 +5,10 @@ class CredRepo:
 
     @staticmethod
     def save(credentials: Credentials):
-        return True
+        try:
+            with open("data.data", "a") as file:
+                file.write(credentials.to_string())
+                return True
+        except ValueError:
+            print(ValueError)
+            return False
